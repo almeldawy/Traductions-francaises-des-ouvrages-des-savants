@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bibliothèque des traductions</title>
+<meta name="description" content="Traductions françaises d'ouvrages de savants de la Sounnah : ʿaqîda et fiqh.">
+<meta name="theme-color" content="#0f3d47">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e7;
+  --bg-2:#efe7d6;
+  --surface:#fffdf8;
+  --ink:#1d2a2e;
+  --ink-soft:#4f5d61;
+  --line:#e2d7c1;
+  --primary:#0f3d47;
+  --primary-2:#17596a;
+  --gold:#c8902a;
+  --gold-soft:#f3e2bf;
+  --shadow:0 1px 2px rgba(20,30,35,.06),0 8px 24px rgba(20,30,35,.07);
+  --shadow-hover:0 2px 4px rgba(20,30,35,.08),0 16px 36px rgba(20,30,35,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1517;--bg-2:#131c1f;--surface:#172226;--ink:#e9e3d6;--ink-soft:#a9b3b3;
+    --line:#26363b;--primary:#7cc0cf;--primary-2:#9fd3de;--gold:#e0b25a;--gold-soft:#3a2f18;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    --shadow-hover:0 2px 4px rgba(0,0,0,.35),0 16px 36px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1517;--bg-2:#131c1f;--surface:#172226;--ink:#e9e3d6;--ink-soft:#a9b3b3;
+  --line:#26363b;--primary:#7cc0cf;--primary-2:#9fd3de;--gold:#e0b25a;--gold-soft:#3a2f18;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  --shadow-hover:0 2px 4px rgba(0,0,0,.35),0 16px 36px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.6;min-height:100vh;
+  transition:background .25s,color .25s;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* ---------- Barre du haut ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"EB Garamond",serif;font-size:1.2rem;font-weight:600;color:var(--primary)}
+.brand-mark{
+  width:34px;height:34px;border-radius:99px;display:grid;place-items:center;
+  background:var(--primary);color:var(--bg);font-family:"Amiri",serif;font-size:1.25rem;line-height:1;
+}
+.icon-btn{
+  width:40px;height:40px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  transition:border-color .2s,transform .2s;
+}
+.icon-btn:hover{border-color:var(--gold)}
+.icon-btn svg{width:19px;height:19px}
+.icon-sun{display:none}
+:root[data-theme="dark"] .icon-sun{display:block}
+:root[data-theme="dark"] .icon-moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .icon-sun{display:block}
+  :root:not([data-theme="light"]) .icon-moon{display:none}
+}
+
+/* ---------- Bandeau d'annonce (Upcoming Banner) ---------- */
+.upcoming-banner{
+  margin: 24px auto 0;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, #000), color-mix(in srgb, var(--primary-2) 85%, #000));
+  color: #fffdf8;
+  box-shadow: 0 10px 30px rgba(15, 61, 71, 0.18);
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+}
+:root[data-theme="dark"] .upcoming-banner {
+  background: linear-gradient(135deg, #12282e, #173842);
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
+}
+.upcoming-banner-inner{
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.upcoming-content{
+  flex: 1;
+  min-width: 0;
+}
+.upcoming-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(200, 144, 42, 0.2);
+  color: #e0b25a;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 144, 42, 0.35);
+  margin-bottom: 12px;
+}
+.upcoming-badge-dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+.upcoming-ar-title{
+  font-family: "Amiri", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  direction: rtl;
+  text-align: right;
+  color: #f3e2bf;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.upcoming-fr-title{
+  font-family: "EB Garamond", serif;
+  font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+.upcoming-author{
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, #fff 75%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.upcoming-author span{
+  color: var(--gold);
+  font-weight: 500;
+}
+.upcoming-bg-pattern{
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-family: "Amiri", serif;
+  font-size: 13rem;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ---------- En-tête ---------- */
+.hero{padding:48px 0 34px;text-align:center}
+.hero-ar{
+  font-family:"Amiri",serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--gold);
+  direction:rtl;margin-bottom:8px;
+}
+.hero h1{
+  font-family:"EB Garamond",serif;font-weight:500;
+  font-size:clamp(2rem,5.5vw,3.3rem);line-height:1.15;color:var(--primary);letter-spacing:-.01em;
+}
+.hero p{max-width:640px;margin:16px auto 0;color:var(--ink-soft);font-size:1.02rem}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px auto 0;color:var(--gold)}
+.ornament span{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+
+.stats{display:flex;justify-content:center;gap:28px;margin-top:26px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat b{display:block;font-family:"EB Garamond",serif;font-size:1.8rem;font-weight:600;color:var(--primary);line-height:1}
+.stat small{color:var(--ink-soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- Reprise de lecture ---------- */
+.resume{
+  display:none;margin:0 auto 24px;max-width:720px;
+  background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);
+  border-radius:12px;padding:12px 16px;align-items:center;gap:12px;font-size:.95rem;
+}
+.resume.show{display:flex}
+.resume a{font-weight:600;color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+.resume button{margin-left:auto;background:none;border:none;color:var(--ink-soft);cursor:pointer;font-size:1.1rem;padding:4px}
+
+/* ---------- Outils ---------- */
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
+.search{
+  flex:1 1 280px;position:relative;
+}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-soft)}
+.search input{
+  width:100%;height:46px;border-radius:12px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);padding:0 14px 0 42px;font:inherit;font-size:.98rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+.search input:focus{outline:none;border-color:var(--primary-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary-2) 18%,transparent)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-soft);font:inherit;font-size:.9rem;font-weight:500;cursor:pointer;
+  transition:all .2s;
+}
+.chip:hover{border-color:var(--gold);color:var(--ink)}
+.chip.active{background:var(--primary);border-color:var(--primary);color:var(--bg)}
+
+/* ---------- Grille de livres ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding-bottom:40px}
+.book{
+  position:relative;display:flex;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.book:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:color-mix(in srgb,var(--gold) 50%,var(--line))}
+.book:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.spine{
+  flex:0 0 74px;background:var(--spine,#0f3d47);position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.spine::before,.spine::after{
+  content:"";position:absolute;left:12px;right:12px;height:2px;background:rgba(255,255,255,.35);
+}
+.spine::before{top:18px}.spine::after{bottom:18px}
+.spine span{
+  writing-mode:vertical-rl;font-family:"Amiri",serif;color:#fff;font-size:1.05rem;
+  line-height:1.2;max-height:220px;overflow:hidden;text-align:center;opacity:.95;
+}
+.book-body{flex:1;padding:20px 20px 18px;display:flex;flex-direction:column;min-width:0}
+.tag{
+  align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.ar-title{
+  font-family:"Amiri",serif;direction:rtl;text-align:right;font-size:1.3rem;line-height:1.6;color:var(--ink);
+  margin-bottom:6px;
+}
+.fr-title{font-family:"EB Garamond",serif;font-size:1.32rem;font-weight:600;line-height:1.25;color:var(--primary)}
+.author{margin-top:6px;font-size:.88rem;color:var(--ink-soft)}
+.desc{margin-top:12px;font-size:.92rem;color:var(--ink-soft);flex:1}
+.open{
+  margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--primary);
+}
+.open svg{width:16px;height:16px;transition:transform .2s}
+.book:hover .open svg{transform:translateX(4px)}
+.last-badge{
+  position:absolute;top:12px;right:12px;font-size:.7rem;font-weight:600;
+  background:var(--gold);color:#fff;padding:3px 9px;border-radius:999px;
+}
+.empty{display:none;text-align:center;color:var(--ink-soft);padding:40px 0 60px;font-style:italic}
+
+/* ---------- Pied de page ---------- */
+footer{border-top:1px solid var(--line);padding:28px 0 36px;text-align:center;color:var(--ink-soft);font-size:.88rem}
+footer .ar{font-family:"Amiri",serif;font-size:1.15rem;color:var(--gold);direction:rtl;margin-bottom:6px}
+
+@media (max-width:520px){
+  .upcoming-banner-inner{padding:18px 20px}
+  .grid{grid-template-columns:1fr}
+  .spine{flex-basis:56px}
+  .spine span{font-size:.95rem}
+  .book-body{padding:16px}
+  .hero{padding:34px 0 24px}
+  .stats{gap:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important};.upcoming-badge-dot{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <span class="brand-mark">ك</span>
+      Bibliothèque des traductions
+    </a>
+    <button class="icon-btn" id="themeBtn" aria-label="Changer de thème clair / sombre">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Bandeau d'annonce du prochain livre -->
+  <aside class="upcoming-banner" aria-label="Prochaine parution">
+    <div class="upcoming-bg-pattern">المورد</div>
+    <div class="upcoming-banner-inner">
+      <div class="upcoming-content">
+        <div class="upcoming-badge">
+          <span class="upcoming-badge-dot"></span>
+          Prochaine traduction à venir
+        </div>
+        <div class="upcoming-ar-title" lang="ar">المورد العذب الزلال فيما انتقد على بعض المناهج الدعوية من العقائد والأعمال</div>
+        <div class="upcoming-fr-title">Al-Mawrid al-ʿAdhb az-Zulāl fīmā ntuqida ʿalā baʿḍ al-manāhij ad-daʿawiyya min al-ʿaqāʾid wa-l-aʿmāl</div>
+        <div class="upcoming-author">Ouvrage de <span>Cheikh Aḥmad ibn Yaḥyā an-Najmī</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <section class="hero">
+    <div class="hero-ar">بسم الله الرحمن الرحيم</div>
+    <h1>Traductions françaises<br>des ouvrages des savants</h1>
+    <p>Recueil des livres de ʿaqîda et de fiqh traduits en français, avec les versets et les hadiths en arabe suivis de leur traduction et de leurs références.</p>
+    <div class="ornament"><span></span>✦<span></span></div>
+    <div class="stats">
+      <div class="stat"><b id="statBooks">8</b><small>Livres</small></div>
+      <div class="stat"><b id="statAqida">4</b><small>ʿAqîda</small></div>
+      <div class="stat"><b id="statFiqh">4</b><small>Fiqh</small></div>
+    </div>
+  </section>
+
+  <div class="resume" id="resume">
+    <span>📖</span>
+    <span>Reprendre : <a id="resumeLink" href="#"></a></span>
+    <button id="resumeClose" aria-label="Masquer">✕</button>
+  </div>
+
+  <div class="tools">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="Rechercher un titre, un auteur…" autocomplete="off">
+    </label>
+    <div class="chips" role="tablist">
+      <button class="chip active" data-f="all">Tous</button>
+      <button class="chip" data-f="aqida">ʿAqîda</button>
+      <button class="chip" data-f="fiqh">Fiqh</button>
+    </div>
+  </div>
+
+  <section class="grid" id="grid"></section>
+  <p class="empty" id="empty">Aucun livre ne correspond à votre recherche.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ar">وما توفيقي إلا بالله</div>
+    <p>Traductions rapprochées du sens — que tout bien vienne d'Allah, et toute erreur de nous-mêmes.</p>
+  </div>
+</footer>
+
+<script>
+const BOOKS = [
+  {
+    id:"annulatifs",
+    cat:"aqida",
+    ar:"نواقض الإسلام",
+    fr:"Les Annulatifs de l'Islam",
+    author:"Cheikh Sâlih Al-Fawzân",
+    desc:"Commentaire par Cheikh Sâlih Al-Fawzân de l'Épître concise énumérant les dix grands annulatifs qui font sortir l'individu de l'Islam, indispensable pour préserver sa foi.",
+    url:"https://almeldawy.github.io/Les-annulatifs-de-l-Islam/",
+    color:"#4a2e5b"
+  },
+  {
+    id:"tawhid",
+    cat:"aqida",
+    ar:"إعانة المستفيد بشرح كتاب التوحيد",
+    fr:"Iʿânat al-Mustafîd bi-charh Kitâb at-Tawhîd",
+    author:"Cheikh Sâlih Al-Fawzân",
+    desc:"Commentaire du Kitâb at-Tawhîd de Cheikh Muhammad ibn ʿAbd al-Wahhâb : l'unicité d'Allah, ses mérites et ce qui la contredit, chapitre par chapitre.",
+    url:"https://almeldawy.github.io/I3anat-al-Mustafid-bi-charh-Kitab-at-Tawhid/",
+    color:"#0f3d47"
+  },
+  {
+    id:"irchad",
+    cat:"aqida",
+    ar:"الإرشاد إلى صحيح الاعتقاد",
+    fr:"Al-Irchâd ilâ sahîh al-iʿtiqâd",
+    author:"Cheikh Sâlih Al-Fawzân",
+    desc:"Guide vers la croyance authentique : le tawhîd et ses catégories, les piliers de la foi et la réfutation des gens du chirk.",
+    url:"https://almeldawy.github.io/Al-Irchad-ila-sahih-al-itiqad/",
+    color:"#1f5a4a"
+  },
+  {
+    id:"takfir",
+    cat:"aqida",
+    ar:"قضية التكفير بين أهل السنة وفرق الضلال",
+    fr:"La question du takfîr",
+    author:"Cheikh Saʿîd ibn Wahf Al-Qahtânî",
+    desc:"La question du takfîr entre Ahl as-Sunna et les sectes égarées : ses règles, ses conditions et ses empêchements.",
+    url:"https://almeldawy.github.io/La-question-du-takfir/",
+    color:"#5b2e3a"
+  },
+  {
+    id:"hijab",
+    cat:"fiqh",
+    catLabel:"Fiqh · Épîtres",
+    ar:"الحجاب والسفور في الكتاب والسنة",
+    fr:"Le Hijâb et le Dévoilement dans le Livre et la Sounnah",
+    author:"Cheikh ʿAbd al-ʿAzîz Ibn Bâz",
+    desc:"Les preuves du Coran et de la Sounnah concernant le hijâb, accompagnées d'un recueil d'épîtres sur le sujet.",
+    url:"https://almeldawy.github.io/Le-hijab-et-le-devoilement-dans-le-Livre-et-la-Sounnah/",
+    color:"#3c3f6b"
+  },
+  {
+    id:"moulakhkhas",
+    cat:"fiqh",
+    ar:"الملخص الفقهي",
+    fr:"Al-Moulakhkhas Al-Fiqhi",
+    author:"Cheikh Sâlih Al-Fawzân",
+    desc:"Résumé de jurisprudence islamique couvrant les adorations, les transactions, l'héritage et les autres livres du fiqh.",
+    url:"https://almeldawy.github.io/Al-Moulakhkhas-Al-Fiqhi/",
+    color:"#8a5a12"
+  },
+  {
+    id:"salat",
+    cat:"fiqh",
+    ar:"فضائل الصلاة وحكم وعقوبة تاركها",
+    fr:"Fadâ'il as-Salât",
+    author:"Cheikh Sâlih Al-Fawzân — commentaire de Cheikh Ibn Bâz",
+    desc:"Les mérites de la prière, le jugement de celui qui la délaisse et la punition qui l'attend.",
+    url:"https://almeldawy.github.io/fadaail_As-Salat/",
+    color:"#246070"
+  },
+  {
+    id:"atima",
+    cat:"fiqh",
+    ar:"الأطعمة وأحكام الصيد والذبائح",
+    fr:"Les aliments et les règles de la chasse et des bêtes abattues",
+    author:"Cheikh Sâlih Al-Fawzân",
+    desc:"Ce qui est licite et illicite parmi les aliments, et les règles de la chasse et de l'abattage selon la Charîʿa.",
+    url:"https://almeldawy.github.io/Les-aliments-et-les-regles-de-la-chasse-et-des-betes-abattues/",
+    color:"#6b4a2b"
+  }
+];
+
+const LABELS = {aqida:"ʿAqîda", fiqh:"Fiqh"};
+const grid = document.getElementById("grid");
+const empty = document.getElementById("empty");
+const q = document.getElementById("q");
+let filter = "all";
+
+/* --- Stockage sécurisé --- */
+function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null}}
+
+/* --- Normalisation pour la recherche (accents, ʿ, ') --- */
+const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[ʿʾ'’\-]/g,"").toLowerCase();
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+function render(){
+  const term = norm(q.value.trim());
+  const last = store("biblio-last");
+  let shown = 0;
+  grid.innerHTML = "";
+  BOOKS.forEach(b=>{
+    const cats = b.cat.split(" ");
+    if(filter!=="all" && !cats.includes(filter)) return;
+    const hay = norm([b.fr,b.author,b.desc].join(" ")) + " " + b.ar;
+    if(term && !hay.includes(term) && !b.ar.includes(q.value.trim())) return;
+    shown++;
+    const a = document.createElement("a");
+    a.className = "book";
+    a.href = b.url;
+    a.style.setProperty("--spine", b.color);
+    a.innerHTML = `
+      ${last===b.id ? '<span class="last-badge">Dernière lecture</span>' : ''}
+      <div class="spine" aria-hidden="true"><span>${b.ar}</span></div>
+      <div class="book-body">
+        <span class="tag">${b.catLabel || LABELS[cats[0]]}</span>
+        <div class="ar-title" lang="ar">${b.ar}</div>
+        <h2 class="fr-title">${b.fr}</h2>
+        <div class="author">${b.author}</div>
+        <p class="desc">${b.desc}</p>
+        <span class="open">Ouvrir le livre ${arrow}</span>
+      </div>`;
+    a.addEventListener("click",()=>store("biblio-last",b.id));
+    grid.appendChild(a);
+  });
+  empty.style.display = shown ? "none" : "block";
+}
+
+/* --- Filtres --- */
+document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  c.classList.add("active");
+  filter = c.dataset.f;
+  render();
+}));
+q.addEventListener("input",render);
+
+/* --- Statistiques --- */
+document.getElementById("statBooks").textContent = BOOKS.length;
+document.getElementById("statAqida").textContent = BOOKS.filter(b=>b.cat==="aqida").length;
+document.getElementById("statFiqh").textContent = BOOKS.filter(b=>b.cat.includes("fiqh")).length;
+
+/* --- Reprise de lecture --- */
+(function(){
+  const last = store("biblio-last");
+  const b = BOOKS.find(x=>x.id===last);
+  if(!b || store("biblio-resume-hidden")===last) return;
+  const box = document.getElementById("resume");
+  const link = document.getElementById("resumeLink");
+  link.textContent = b.fr; link.href = b.url;
+  box.classList.add("show");
+  document.getElementById("resumeClose").onclick = ()=>{box.classList.remove("show");store("biblio-resume-hidden",last)};
+})();
+
+/* --- Thème : suit l'appareil, bouton pour basculer --- */
+(function(){
+  const root = document.documentElement;
+  const saved = store("biblio-theme");
+  if(saved) root.dataset.theme = saved;
+  document.getElementById("themeBtn").addEventListener("click",()=>{
+    const isDark = root.dataset.theme ? root.dataset.theme==="dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = isDark ? "light" : "dark";
+    store("biblio-theme", root.dataset.theme);
+  });
+})();
+
+render();
+</script>
+</body>
+</html>

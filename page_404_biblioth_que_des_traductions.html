@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 - Page non trouvée | Bibliothèque des traductions</title>
+<meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée.">
+<meta name="theme-color" content="#0f3d47">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e7;
+  --bg-2:#efe7d6;
+  --surface:#fffdf8;
+  --ink:#1d2a2e;
+  --ink-soft:#4f5d61;
+  --line:#e2d7c1;
+  --primary:#0f3d47;
+  --primary-2:#17596a;
+  --gold:#c8902a;
+  --gold-soft:#f3e2bf;
+  --shadow:0 1px 2px rgba(20,30,35,.06),0 8px 24px rgba(20,30,35,.07);
+  --shadow-hover:0 2px 4px rgba(20,30,35,.08),0 16px 36px rgba(20,30,35,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1517;--bg-2:#131c1f;--surface:#172226;--ink:#e9e3d6;--ink-soft:#a9b3b3;
+    --line:#26363b;--primary:#7cc0cf;--primary-2:#9fd3de;--gold:#e0b25a;--gold-soft:#3a2f18;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    --shadow-hover:0 2px 4px rgba(0,0,0,.35),0 16px 36px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1517;--bg-2:#131c1f;--surface:#172226;--ink:#e9e3d6;--ink-soft:#a9b3b3;
+  --line:#26363b;--primary:#7cc0cf;--primary-2:#9fd3de;--gold:#e0b25a;--gold-soft:#3a2f18;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  --shadow-hover:0 2px 4px rgba(0,0,0,.35),0 16px 36px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.6;min-height:100vh;
+  display:flex;flex-direction:column;
+  transition:background .25s,color .25s;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px;width:100%}
+
+/* ---------- Barre du haut ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"EB Garamond",serif;font-size:1.2rem;font-weight:600;color:var(--primary)}
+.brand-mark{
+  width:34px;height:34px;border-radius:99px;display:grid;place-items:center;
+  background:var(--primary);color:var(--bg);font-family:"Amiri",serif;font-size:1.25rem;line-height:1;
+}
+.icon-btn{
+  width:40px;height:40px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  transition:border-color .2s,transform .2s;
+}
+.icon-btn:hover{border-color:var(--gold)}
+.icon-btn svg{width:19px;height:19px}
+.icon-sun{display:none}
+:root[data-theme="dark"] .icon-sun{display:block}
+:root[data-theme="dark"] .icon-moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .icon-sun{display:block}
+  :root:not([data-theme="light"]) .icon-moon{display:none}
+}
+
+/* ---------- Zone principale 404 ---------- */
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:40px 0 60px;
+}
+
+.error-hero{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto;
+}
+
+.error-badge-container{
+  position:relative;
+  display:inline-block;
+  margin-bottom:16px;
+}
+
+.error-code{
+  font-family:"EB Garamond",serif;
+  font-size:clamp(5rem, 15vw, 8.5rem);
+  font-weight:700;
+  line-height:1;
+  color:var(--primary);
+  letter-spacing:-0.03em;
+  opacity:0.9;
+  text-shadow:0 4px 20px rgba(15, 61, 71, 0.08);
+}
+
+.error-ar-calligraphy{
+  font-family:"Amiri",serif;
+  font-size:clamp(1.8rem, 4.5vw, 2.6rem);
+  color:var(--gold);
+  direction:rtl;
+  margin-bottom:12px;
+  line-height:1.4;
+}
+
+.error-hero h1{
+  font-family:"EB Garamond",serif;
+  font-weight:600;
+  font-size:clamp(1.8rem, 4vw, 2.4rem);
+  line-height:1.2;
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.error-hero p{
+  color:var(--ink-soft);
+  font-size:1.05rem;
+  max-width:540px;
+  margin:0 auto 28px;
+}
+
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:20px auto 32px;color:var(--gold)}
+.ornament span{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+
+/* ---------- Formulaire de recherche rapide ---------- */
+.search-box{
+  width:100%;
+  max-width:480px;
+  margin:0 auto 36px;
+  position:relative;
+}
+.search-box form{
+  display:flex;
+  gap:8px;
+}
+.search-input-wrap{
+  position:relative;
+  flex:1;
+}
+.search-input-wrap svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-soft);
+}
+.search-input-wrap input{
+  width:100%;height:48px;border-radius:12px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);padding:0 14px 0 42px;font:inherit;font-size:.98rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+.search-input-wrap input:focus{
+  outline:none;border-color:var(--primary-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary-2) 18%,transparent);
+}
+.btn-search{
+  height:48px;padding:0 20px;border-radius:12px;border:none;
+  background:var(--primary);color:var(--bg);font-family:inherit;font-weight:600;font-size:.95rem;
+  cursor:pointer;transition:background .2s,transform .2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-search:hover{
+  background:var(--primary-2);
+  transform:translateY(-1px);
+}
+
+/* ---------- Boutons d'action ---------- */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:48px;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--primary);
+  color:var(--bg);
+  padding:12px 24px;
+  border-radius:12px;
+  font-weight:600;
+  font-size:0.98rem;
+  transition:background .2s, transform .2s, box-shadow .2s;
+  box-shadow:var(--shadow);
+}
+.btn-primary:hover{
+  background:var(--primary-2);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-hover);
+}
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--line);
+  padding:12px 24px;
+  border-radius:12px;
+  font-weight:500;
+  font-size:0.98rem;
+  transition:border-color .2s, background .2s, transform .2s;
+}
+.btn-secondary:hover{
+  border-color:var(--gold);
+  background:var(--bg-2);
+  transform:translateY(-2px);
+}
+
+/* ---------- Suggestions de livres ---------- */
+.suggestions-sec{
+  width:100%;
+  max-width:820px;
+  margin:0 auto;
+  border-top:1px dashed var(--line);
+  padding-top:36px;
+}
+.suggestions-title{
+  text-align:center;
+  font-family:"EB Garamond",serif;
+  font-size:1.3rem;
+  color:var(--primary);
+  margin-bottom:20px;
+  font-weight:600;
+}
+.quick-links{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+}
+.quick-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+}
+.quick-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--gold);
+  box-shadow:var(--shadow);
+}
+.quick-spine{
+  width:8px;
+  height:42px;
+  border-radius:99px;
+  flex-shrink:0;
+}
+.quick-info{
+  flex:1;
+  min-width:0;
+}
+.quick-ar{
+  font-family:"Amiri",serif;
+  font-size:0.95rem;
+  color:var(--gold);
+  direction:rtl;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.2;
+}
+.quick-fr{
+  font-family:"EB Garamond",serif;
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--primary);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.3;
+}
+
+/* ---------- Pied de page ---------- */
+footer{border-top:1px solid var(--line);padding:24px 0 32px;text-align:center;color:var(--ink-soft);font-size:.88rem}
+footer .ar{font-family:"Amiri",serif;font-size:1.15rem;color:var(--gold);direction:rtl;margin-bottom:4px}
+
+@media (max-width:520px){
+  main{padding:30px 0 40px}
+  .actions{flex-direction:column;width:100%;max-width:320px;margin-left:auto;margin-right:auto}
+  .btn-primary, .btn-secondary{justify-content:center;width:100%}
+  .quick-links{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">ك</span>
+      Bibliothèque des traductions
+    </a>
+    <button class="icon-btn" id="themeBtn" aria-label="Changer de thème clair / sombre">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="error-hero">
+    <div class="error-code">404</div>
+    <div class="error-ar-calligraphy" lang="ar">الصفحة غير موجودة</div>
+    <h1>Page non trouvée</h1>
+    <p>La page que vous recherchez semble introuvable, a été déplacée ou n'existe plus.</p>
+    
+    <div class="ornament"><span></span>✦<span></span></div>
+
+    <!-- Barre de recherche directe vers l'accueil -->
+    <div class="search-box">
+      <form action="index.html" method="GET" id="searchForm">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" name="q" placeholder="Rechercher un livre, un auteur..." autocomplete="off">
+        </div>
+        <button type="submit" class="btn-search">Rechercher</button>
+      </form>
+    </div>
+
+    <!-- Action boutons -->
+    <div class="actions">
+      <a href="index.html" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Retour à l'accueil
+      </a>
+      <button onclick="history.back()" class="btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Page précédente
+      </button>
+    </div>
+  </div>
+
+  <!-- Suggestions d'ouvrages phares -->
+  <section class="suggestions-sec">
+    <h2 class="suggestions-title">Consulter nos derniers livres traduits</h2>
+    <div class="quick-links">
+      <a class="quick-card" href="https://almeldawy.github.io/I3anat-al-Mustafid-bi-charh-Kitab-at-Tawhid/">
+        <span class="quick-spine" style="background:#0f3d47"></span>
+        <div class="quick-info">
+          <div class="quick-ar" lang="ar">إعانة المستفيد بشرح كتاب التوحيد</div>
+          <div class="quick-fr">Kitâb at-Tawhîd</div>
+        </div>
+      </a>
+
+      <a class="quick-card" href="https://almeldawy.github.io/Al-Moulakhkhas-Al-Fiqhi/">
+        <span class="quick-spine" style="background:#8a5a12"></span>
+        <div class="quick-info">
+          <div class="quick-ar" lang="ar">الملخص الفقهي</div>
+          <div class="quick-fr">Al-Moulakhkhas Al-Fiqhi</div>
+        </div>
+      </a>
+
+      <a class="quick-card" href="https://almeldawy.github.io/Les-annulatifs-de-l-Islam/">
+        <span class="quick-spine" style="background:#4a2e5b"></span>
+        <div class="quick-info">
+          <div class="quick-ar" lang="ar">نواقض الإسلام</div>
+          <div class="quick-fr">Les Annulatifs de l'Islam</div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ar">وما توفيقي إلا بالله</div>
+    <p>Traductions rapprochées du sens — que tout bien vienne d'Allah, et toute erreur de nous-mêmes.</p>
+  </div>
+</footer>
+
+<script>
+/* --- Stockage sécurisé --- */
+function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null}}
+
+/* --- Gestion du Thème (Sombre / Clair) synchronisé avec la page principale --- */
+(function(){
+  const root = document.documentElement;
+  const saved = store("biblio-theme");
+  if(saved) root.dataset.theme = saved;
+  document.getElementById("themeBtn").addEventListener("click",()=>{
+    const isDark = root.dataset.theme ? root.dataset.theme==="dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = isDark ? "light" : "dark";
+    store("biblio-theme", root.dataset.theme);
+  });
+})();
+</script>
+</body>
+</html>
